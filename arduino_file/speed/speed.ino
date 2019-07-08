@@ -8,7 +8,7 @@ void setup() {
 
   Serial.begin(9600);
   mpu6050.begin(115200);
-  //  mpu6050.write(0x52);
+    mpu6050.write(0x52);
   Serial.println("-------------- done --------------");
 
 }
