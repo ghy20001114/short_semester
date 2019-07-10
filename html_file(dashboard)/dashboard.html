@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    object = {
+        whichled: 1,
+        first: "00000000",
+        second: "00000000",
+        third: "00000000",
+        forth: "00000000",
+        fifth: "00000000",
+        sixth: "00000000",
+        seventh: "00000000",
+        eighth: "00000000"
+    };
+    scope.click = function (button) {
+        button.payload['whichled']=object.whichled;
+        button.payload['first']=object.first;
+        button.payload['second']=object.second;
+        button.payload['third']=object.third;
+        button.payload['forth']=object.forth;
+        button.payload['fifth']=object.fifth;
+        button.payload['sixth']=object.sixth;
+        button.payload['seventh']=object.seventh;
+        button.payload['eighth']=object.eighth;
+        // button.msg.payload=JSON.stringify(object);
+        button.send(button.msg);
+
+    }
+    function submitform() {
+        document.getElementById("1111").innerHTML = JSON.stringify(object);
+
+        object.whichled = document.getElementById("which_led").value-'0';
+        document.getElementById("face").innerHTML = object.whichled;
+        document.getElementById("demo0").innerHTML = object.first;
+        document.getElementById("demo1").innerHTML = object.second;
+        document.getElementById("demo2").innerHTML = object.third;
+        document.getElementById("demo3").innerHTML = object.forth;
+        document.getElementById("demo4").innerHTML = object.fifth;
+        document.getElementById("demo5").innerHTML = object.sixth;
+        document.getElementById("demo6").innerHTML = object.seventh;
+        document.getElementById("demo7").innerHTML = object.eighth;
+    }
+
+    function checkboxclick(obj) {
+        let ID_led = obj.id;
+        if (obj.checked) {
+            obj.value = "1";
+        } else {
+            obj.value = "0";
+        }
+        let row, list;//行，列
+        row = ID_led[0];
+        list = ID_led[2];
+        switch (row) {
+            case "1":
+                object.first = object.first.split('');
+                object.first.splice(parseInt(list) - 1, 1, obj.value);
+                object.first = object.first.join('');
+                break;
+            case "2":
+                object.second = object.second.split('');
+                object.second.splice(parseInt(list) - 1, 1, obj.value);
+                object.second = object.second.join('');
+                break;
+            case "3":
+                object.third = object.third.split('');
+                object.third.splice(parseInt(list) - 1, 1, obj.value);
+                object.third = object.third.join('');
+                break;
+            case "4":
+                object.forth = object.forth.split('');
+                object.forth.splice(parseInt(list) - 1, 1, obj.value);
+                object.forth = object.forth.join('');
+                break;
+            case "5":
+                object.fifth = object.fifth.split('');
+                object.fifth.splice(parseInt(list) - 1, 1, obj.value);
+                object.fifth = object.fifth.join('');
+                break;
+            case "6":
+                object.sixth = object.sixth.split('');
+                object.sixth.splice(parseInt(list) - 1, 1, obj.value);
+                object.sixth = object.sixth.join('');
+                break;
+            case "7":
+                object.seventh = object.seventh.split('');
+                object.seventh.splice(parseInt(list) - 1, 1, obj.value);
+                object.seventh = object.seventh.join('');
+                break;
+            case "8":
+                object.eighth = object.eighth.split('');
+                object.eighth.splice(parseInt(list) - 1, 1, obj.value);
+                object.eighth = object.eighth.join('');
+                break;
+            default:
+                break;
+        }
+    }
+</script>
+<div>
+    <select id="which_led">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>
+</div>
+<div style="height: 500px;width: 270px">
+    <form id="led" onsubmit="return submitform()">
+        <input type="checkbox" id="1.1" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="1.2" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="1.3" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="1.4" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="1.5" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="1.6" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="1.7" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="1.8" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="2.1" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="2.2" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="2.3" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="2.4" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="2.5" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="2.6" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="2.7" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="2.8" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="3.1" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="3.2" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="3.3" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="3.4" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="3.5" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="3.6" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="3.7" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="3.8" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="4.1" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="4.2" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="4.3" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="4.4" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="4.5" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="4.6" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="4.7" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="4.8" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="5.1" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="5.2" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="5.3" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="5.4" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="5.5" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="5.6" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="5.7" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="5.8" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="6.1" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="6.2" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="6.3" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="6.4" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="6.5" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="6.6" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="6.7" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="6.8" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="7.1" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="7.2" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="7.3" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="7.4" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="7.5" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="7.6" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="7.7" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="7.8" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="8.1" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="8.2" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="8.3" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="8.4" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="8.5" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="8.6" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="8.7" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="checkbox" id="8.8" value="0" style="width: 20px;height: 20px" onclick="checkboxclick(this)">
+        <input type="submit" style="width: 50px;height: 50px;background-color: cadetblue">
+    </form>
+    <md-button name="submit" id="submit" style="width: 50px;height: 50px;background-color: cadetblue"
+               ng-model="msg.payload" ng-click="click(this)">上传
+    </md-button>
+    {{name}}
+</div>
+<p id="face"></p>
+<p id="demo0"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="1111"></p>
+
+</body>
+</html>
+
