@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <script>
 
     object = {
@@ -20,19 +21,10 @@
         eighth: "00000000"
     };
     scope.click = function (button) {
-        button.payload['whichled']=object.whichled;
-        button.payload['first']=object.first;
-        button.payload['second']=object.second;
-        button.payload['third']=object.third;
-        button.payload['forth']=object.forth;
-        button.payload['fifth']=object.fifth;
-        button.payload['sixth']=object.sixth;
-        button.payload['seventh']=object.seventh;
-        button.payload['eighth']=object.eighth;
-        // button.msg.payload=JSON.stringify(object);
+        button.msg.payload= object;
         button.send(button.msg);
 
-    }
+    };
     function submitform() {
         document.getElementById("1111").innerHTML = JSON.stringify(object);
 
@@ -185,8 +177,8 @@
     <md-button name="submit" id="submit" style="width: 50px;height: 50px;background-color: cadetblue"
                ng-model="msg.payload" ng-click="click(this)">上传
     </md-button>
-    {{name}}
 </div>
+
 <p id="face"></p>
 <p id="demo0"></p>
 <p id="demo1"></p>
