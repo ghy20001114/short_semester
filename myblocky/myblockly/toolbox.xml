@@ -1,0 +1,37 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+
+  <category name="TFJS" colour="#F6921E">
+
+    <block type="mobilenet"></block>
+  </category>
+  <category name="车" colour="#97FFFF">
+
+  <block type="car"></block>
+  <block type="car_id"></block>
+   <block type="node_red_return"></block>
+  
+</category>
+
+
+
+  <category name="传送带" colour="#88A705">
+
+    <block type="sorte"></block>
+    <block type="conveyor_speed"></block>
+    <block type="var_convert"></block>
+    <block type="node_red_return"></block>
+    <block type="photogate"></block>
+  </category>
+
+  <category name="RGB灯" colour="#ff0000">
+    <block type="rgb"></block>
+    <block type="rgb_id"></block>
+    <block type="node_red_return"></block>
+
+  </category>
+
+  <category name="LED" colour="#808080">
+    <block type='led_b_to_d'></block>
+  </category>
+
+</xml>
